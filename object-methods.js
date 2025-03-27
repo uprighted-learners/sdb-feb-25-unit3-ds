@@ -65,7 +65,7 @@ let toDo = {
         this.today = []
         this.tomorrow = []
         this.urgent = []
-    }
+    },
 
     /* 
         Create a method called removeItem
@@ -74,6 +74,12 @@ let toDo = {
         if it doesnt exist do nothing
         HINT: might require thinking the OPPOSITE way
     */
+
+    removeItem(item, list) {
+        // reassigning entire object within this[list] property
+        // to an array creates from items that DID NOT match against the item passed
+        this[list] = this[list].filter(i => i !== item)
+    }
 }
 
 function pastaMachine(pasta) {
@@ -86,7 +92,10 @@ console.log(pastaMachine("fettucine"))
 console.log(pastaMachine("farfalle"))
 
 toDo.addToday("get milk", "today")
-toDo.addToday("get milk", "today")
+toDo.addToday("cookies", "today")
+toDo.addToday("vodka", "today")
 toDo.addToday("clean room", "tomorrow")
-toDo.clearAll("today")
+// toDo.clearAll("today")
+console.log(toDo)
+toDo.removeItem("cookies", "today")
 console.log(toDo)
