@@ -53,3 +53,13 @@ const presidents = [
     ! Spicey Mode
     * you can CHAIN METHODS! try to do all this without having multiple different methods calling from a variable
 */
+
+// let presidentsAfter1900 = presidents.filter(president => president.year >= 1900)
+// console.log(presidentsAfter1900)
+
+// presidentsAfter1900.forEach(president => console.log(`${president.first} ${president.last}`))
+
+let presidentsAfter1900 = presidents
+    .filter(p => p.year >= 1900)
+    .map(p => `${p.first} ${p.last}`)
+console.log(presidentsAfter1900)

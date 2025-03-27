@@ -39,3 +39,18 @@ let netflix = {
     ! Spicey Mode
     * don't hardcode the value, instead making it change dynamically based on how many season properties there are
 */
+
+console.log(netflix.seasonInfo.season1.episodeInfo[0].episodeName)
+console.log(netflix)
+netflix.seasonInfo.season3 = {
+    numberOfEpisodes: 2,
+    episodeInfo: [
+        { episode: 1, episodeName: "laksjfldsk" },
+        { episode: 2, episodeName: "lakfjlsj" }
+    ]
+}
+netflix.seasonInfo.season4 = {}
+
+netflix.totalSeasons = Object.keys(netflix.seasonInfo).length
+
+console.log(netflix)
