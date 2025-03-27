@@ -96,3 +96,59 @@ console.log(mariasToDo)
     
     * create one instance of a Car with the Car class and one instance of a car with CarOptions class
 */
+
+class Car {
+    constructor(make, model, year, mileage) {
+        this.make = make
+        this.model = model
+        this.year = year
+        this.mileage = mileage
+    }
+
+    modifyObject(prop, value) {
+        this[prop] = value
+    }
+}
+
+let bmw = new Car("BMW", "M5", 2020, 1200)
+bmw.modifyObject("year", 2016)
+console.log(bmw)
+
+/* 
+    ? Challenge
+    * Create a class called Car
+    * it will accept make, model, year, and mileage
+    * create a method that displays a string iterpolated result of all of those properties
+    * create a method that takes the property and changes its value
+    
+    * create a class called CarOptions which extends from Car
+    * it will have hasLeather, hasColdWeather, and transmission properties
+    * create a method called rollbackOdometer which will reset the mileage to zero
+    
+    * create one instance of a Car with the Car class and one instance of a car with CarOptions class
+*/
+
+class CarOptions extends Car {
+    constructor(make, model, year, mileage, hasLeather, hasColdWeather, transmission) {
+        super(make, model, year, mileage)
+
+        if (typeof hasLeather !== "boolean") {
+            // throw new Error("Need boolean")
+            console.log("Need boolean")
+        } else {
+            this.hasLeather = hasLeather
+        }
+
+        this.hasColdWeather = hasColdWeather
+        this.transmission = transmission
+    }
+
+    rollbackOdometer() {
+        this.mileage = 0
+    }
+}
+
+let porsche = new CarOptions("Porsche", "Cayman", 2020, 1000, true, true, "manual")
+console.log(porsche)
+porsche.rollbackOdometer()
+console.log(porsche)
